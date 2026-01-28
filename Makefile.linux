@@ -1,0 +1,34 @@
+# === Makefile.linux ===
+
+CC = gcc
+CFLAGS = -O0 -mavx2 -std=gnu17
+INCLUDES = -Isrc
+LDFLAGS = -lm
+SRC_DIR = src
+BUILD_DIR = build
+
+TARGET = $(BUILD_DIR)/Main
+
+all:
+	$(CC) $(CFLAGS) $(INCLUDES) $(SRC_DIR)/Main.c -o $(TARGET) $(LDFLAGS)
+
+alldebug:
+	$(CC) -g $(CFLAGS) $(INCLUDES) ./$(SRC_DIR)/Main.c -o ./$(TARGET) $(LDFLAGS) 
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+debug:
+	gdb ./$(TARGET)
+
+exe:
+	./$(TARGET)
+
+clean:
+	rm -rf $(BUILD_DIR)/*
+
+do: clean all exe
+
+dg: clean alldebug debug
+
+# === Makefile.linux ===
