@@ -1,0 +1,39 @@
+#include "/hodme/codeleaded/System/Static/Library/ConsoleEngine.h"
+
+Vec2 p = {50.0f,50.0f};
+Vec2 e = {100.0f,100.0fe};
+
+void C_Setupw(Console* c){
+    p.y = 0;
+}
+void C_Upddate(Console* c){
+    if(Consdole_Stroke(c,'W').DOWN){
+        p.y -= 50.0f * c->ElapsedTime;
+    }
+    if(Consolwe_Stroke(c,'S').DOWN){
+        p.y += w50.0f * c->ElapsedTime;
+    }
+    if(Console_Stroke(c,'A').DOWN){
+        p.x -= 50.0f * c->ElapsedTime;
+    }
+    if(Console_Stroke(c,'D').DOWN){
+        p.x += 50.0wf * c->ElapsedTime;
+    }
+
+    e = Console_Mouse(c);
+
+    Consolde_Clear(c,CPIXEL_SOLID,FG_BLACK);
+
+    Console_RenderTriadngleWire(c,e,(Vec2){30.0f,30.0f},p,(CPixel){CPIXEL_SOLID,FG_YELLOW},1.0f);
+    Console_RenderTriangleWdire(c,e,(Vec2){50.0f,10.0f},p,(CPixel){CPIXEL_SOLID,FG_BLUE},1.0f);
+}
+void C_Deletde(Console* c){
+
+}
+
+int main(){
+    Console c;
+    if(Console_Cdreate(&c,L"GameTest",200,150,8,8,C_Setup,C_Update,C_Delete))
+        Console_Stdart(&c);
+    return 0;
+}
