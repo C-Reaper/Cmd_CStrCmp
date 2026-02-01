@@ -32,8 +32,8 @@ int main(int argc,char **argv){
     CStrCmp_Print(&cc12);
     CStrCmp_DiffMap_WriteF(&cc12.ccdm,"./data/Diff12");
     
-    CStrCmp_DiffMap_Acc(&cc02,&cc12);
-    CStrCmp_DiffMap_Print(&cc02);
+    CStrCmp_DiffMap_Acc(&cc02.ccdm,&cc12.ccdm);
+    CStrCmp_DiffMap_Print(&cc02.ccdm);
 
     CStrCmp_Free(&cc12);
     CStrCmp_Free(&cc02);
