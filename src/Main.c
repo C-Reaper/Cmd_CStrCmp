@@ -12,8 +12,12 @@ int main(int argc,char **argv){
     CStrCmp_DiffMap_WriteF(&cc1.ccdm,"./data/Diff1");
     
     CStrCmp_DiffMap mg = CStrCmp_DiffMap_Cpy(&cc1.ccdm);
-    CStrCmp_DiffMap_Merge(&cc0.ccdm,&mg);
+
+    CStrCmp_KeepMap km = CStrCmp_KeepMap_New();
+    CStrCmp_DiffMap_Merge(&cc0.ccdm,&mg,&km,"./data/Test0.txt");
     CStrCmp_DiffMap_Add(&mg,&cc0.src);
+    CStrCmp_KeepMap_Free(&km);
+
     CStrCmp_DiffMap_Free(&mg);
 
     Vec_CStr_Print(&cc0.src);
